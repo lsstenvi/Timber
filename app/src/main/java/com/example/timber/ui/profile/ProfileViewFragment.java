@@ -12,8 +12,15 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.timber.R;
+import com.example.timber.model.ProfileData;
 
-class ProfileViewFragment extends Fragment {
+public class ProfileViewFragment extends Fragment {
+
+    private ProfileData profileData;
+
+    public ProfileViewFragment(ProfileData profileData) {
+        this.profileData = profileData;
+    }
 
     @Nullable
     @Override
@@ -21,7 +28,7 @@ class ProfileViewFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        ProfileViewModel profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
+        ProfileViewModel profileViewModel = new ViewModelProvider(this, new ProfileViewModel.Factory(profileData)).get(ProfileViewModel.class);
         View root = inflater.inflate(R.layout.fragment_profile_view, container, false);
 
         final TextView nameTextView = root.findViewById(R.id.nameTextView);
