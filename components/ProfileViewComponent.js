@@ -11,12 +11,11 @@ import { StyleSheet, Text, Image, View, ScrollView } from 'react-native';
 class ProfileViewComponent extends React.Component {
   render() {
     const profile = this.props.profile;
-    const {width, height} = Image.resolveAssetSource(profile.picture);
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
           <Text style={styles.displayName}>{profile.name}</Text>
-          <Image style={[styles.profilePicture, {aspectRatio: width / height}]} resizeMode='contain' source={profile.picture} />
+          <Image style={[styles.profilePicture, {aspectRatio: 1}]} resizeMode='contain' source={profile.picture} />
           <Text style={styles.description}>{profile.desc}</Text>
         </ScrollView>
       </View>
@@ -26,20 +25,23 @@ class ProfileViewComponent extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 'auto',
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
+    height: '585px',
   },
   scrollView: {
-    flex: 1,
-    marginHorizontal: 20,
+    width: '100%',
+    flex: 'auto',
+    height: '585px',
   },
   profilePicture: {
     flex: 1,
     alignSelf: 'stretch',
     width: '100%',
-    height: undefined,
+    paddingHorizontal: '20px',
+    height: '320px',
   },
   displayName: {
     fontSize: 36,
