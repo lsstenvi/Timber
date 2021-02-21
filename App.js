@@ -30,10 +30,49 @@ export default class App extends React.Component {
     this.setState({ isReady: true });
   }
 
+  updateState (navState) {
+    switch (navState) {
+      case 1:
+        this.setState({
+          profile: true,
+          swipe: false,
+          chat: false,
+          settings: false,
+        });
+        break;
+      case 2:
+        this.setState({
+          profile: false,
+          swipe: true,
+          chat: false,
+          settings: false,
+        });
+        break;
+      case 3:
+        this.setState({
+          profile: false,
+          swipe: false,
+          chat: true,
+          settings: false,
+        });
+        break;
+      case 4:
+        this.setState({
+          profile: false,
+          swipe: false,
+          chat: false,
+          settings: true,
+        });
+        break;
+      default:
+        break;
+    }
+  }
+
   render() {
     return (
       <Container style={this.styles.container}>
-          {this.state.profile ? <ProfileViewComponent active={this.state.profile} style={{height: '585px'}} profile={{
+          {this.state.profile ? <ProfileViewComponent style={{height: '585px'}} profile={{
             name: "Billy",
             picture: require('./assets/avatar-placeholder.png'),
             desc: "Hi I'm billy and I like bananas"}}
@@ -47,13 +86,15 @@ export default class App extends React.Component {
             gender: "male"}}
           /> : null}
           <Navigation></Navigation>
+          {/* {this.state.settings ? <SettingViewComponent></SettingViewComponent> : null} */}
+          <Navigation updateNav={this.updateState.bind(this)}></Navigation>
       </Container>
     );
   }
 
   styles = StyleSheet.create({
     container: {
-      flex: 1,
+      flex: 'auto',
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',

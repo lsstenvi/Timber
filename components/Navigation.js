@@ -29,6 +29,7 @@ class Navigation extends Component {
       tab3: false,
       tab4: false
     });
+    this.props.updateNav(1);
   }
   toggleTab2() {
     this.setState({
@@ -37,6 +38,7 @@ class Navigation extends Component {
       tab3: false,
       tab4: false
     });
+    this.props.updateNav(2);
   }
   toggleTab3() {
     this.setState({
@@ -45,6 +47,7 @@ class Navigation extends Component {
       tab3: true,
       tab4: false
     });
+    this.props.updateNav(3);
   }
   toggleTab4() {
     this.setState({
@@ -53,6 +56,7 @@ class Navigation extends Component {
       tab3: false,
       tab4: true
     });
+    this.props.updateNav(4);
   }
   render() {
     return (
