@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 'auto',
     alignItems: 'center',
-    justifyContent: 'center',
     position: 'relative',
     height: '585px',
   },
@@ -53,6 +52,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: 'black',
     fontWeight: 'normal',
+    width: '360px',
   }
 })
 

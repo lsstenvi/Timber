@@ -7,6 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 // import TestComponent from './components/TestComponent';
 import Navigation from './components/Navigation';
 import ProfileViewComponent from './components/ProfileViewComponent';
+import SwipePageComponent from './components/SwipePageComponent';
 import SettingViewComponent from './components/SettingViewComponent';
 
 export default class App extends React.Component {
@@ -14,10 +15,10 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       isReady: false,
-      profile: false,
-      swipe: true,
+      profile: true,
+      swipe: false,
       chat: false,
-      settings: true,
+      settings: false,
     };
   }
 
@@ -77,15 +78,15 @@ export default class App extends React.Component {
             picture: require('./assets/avatar-placeholder.png'),
             desc: "Hi I'm billy and I like bananas"}}
           /> : null}
+          {this.state.swipe ? <SwipePageComponent></SwipePageComponent> : null}
 
-          {this.state.settings ? <SettingViewComponent active={this.state.settings} style={{height: '585px'}} settings={{
+          {this.state.settings ? <SettingViewComponent style={{height: '585px'}} setting={{
             name: "Billy",
             picture: require('./assets/avatar-placeholder.png'),
             desc: "Hi I'm billy and I like bananas",
             age: "23",
             gender: "male"}}
           /> : null}
-          
           {/* {this.state.settings ? <SettingViewComponent></SettingViewComponent> : null} */}
           <Navigation updateNav={this.updateState.bind(this)}></Navigation>
       </Container>
