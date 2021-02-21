@@ -79,7 +79,7 @@ export default class App extends React.Component {
           {this.state.profile ? <ProfileViewComponent style={{height: '585px'}} profile={{
             name: "Billy",
             picture: require('./assets/profile3.png'),
-            desc: "Hi I'm billy and I like bananas",
+            desc: "Hi I'm Billy, and I am here to party!",
             age: "23",
           }}
           /> : null}
@@ -90,7 +90,7 @@ export default class App extends React.Component {
           {this.state.settings ? <SettingViewComponent style={{height: '585px'}} settings={{
             name: "Billy",
             picture: require('./assets/profile3.png'),
-            desc: "Hi I'm billy and I like bananas",
+            desc: "Hi I'm Billy, and I am here to party!",
             age: "23",
             gender: "male"}}
           /> : null}
