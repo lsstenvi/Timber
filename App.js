@@ -7,16 +7,17 @@ import { Ionicons } from '@expo/vector-icons';
 // import TestComponent from './components/TestComponent';
 import Navigation from './components/Navigation';
 import ProfileViewComponent from './components/ProfileViewComponent';
+import SettingViewComponent from './components/SettingViewComponent';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isReady: false,
-      profile: true,
+      profile: false,
       swipe: false,
       chat: false,
-      settings: false,
+      setting: true,
     };
   }
 
@@ -36,6 +37,14 @@ export default class App extends React.Component {
             name: "Billy",
             picture: require('./assets/avatar-placeholder.png'),
             desc: "Hi I'm billy and I like bananas"}}
+          /> : null}
+
+          {this.state.setting ? <SettingViewComponent active={this.state.setting} style={{height: '585px'}} setting={{
+            name: "Billy",
+            picture: require('./assets/avatar-placeholder.png'),
+            desc: "Hi I'm billy and I like bananas",
+            age: "23",
+            gender: "male"}}
           /> : null}
           <Navigation></Navigation>
       </Container>
