@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, Image, View, ScrollView } from 'react-native';
-import { Item, Input, ListItem, CheckBox, Body } from "native-base";
+import { StyleSheet, Text, Image, View, ScrollView} from 'react-native';
+import { Item, Input, ListItem, CheckBox, Body, Content, Segment, Button } from "native-base";
 
 
 class SettingViewComponent extends React.Component {
@@ -73,6 +73,32 @@ class SettingViewComponent extends React.Component {
               <Item>
               <Input placeholder={settings.gender} style={styles.input} onChangeText={value => this.props.userUpdate({gender: value})}/>
               </Item>
+
+              <Text style={styles.description}>Physical Ability</Text>
+              <Segment style={{backgroundColor: 'none', textAlign: 'center', borderRadius: '25%'}}>
+          <Button style={{width: '100px', height: '30px',textAlign: 'center', backgroundColor: '#BCE2AE'}}
+            first
+            active={this.state.seg === 1 ? true : false}
+            onPress={() => this.setState({ seg: 1 })}
+          >
+            <Text style={{width: '100%'}}>Beginner</Text>
+          </Button>
+          <Button style={{width: '100px', height: '30px',textAlign: 'center', backgroundColor: '#D4E867'}}
+            active={this.state.seg === 2 ? true : false}
+            onPress={() => this.setState({ seg: 2 })}
+          >
+            <Text style={{width: '100%'}}>Intermediate</Text>
+          </Button>
+          <Button style={{width: '100px', height: '30px',textAlign: 'center', backgroundColor: '#CE8952'}}
+            last
+            active={this.state.seg === 3 ? true : false}
+            onPress={() => this.setState({ seg: 3 })}
+          >
+            <Text style={{width: '100%'}}>Hardcore</Text>
+          </Button>
+        </Segment>
+
+
               <Text style={styles.description}>Your Favorite Outdoor Activities</Text>
               <ListItem button onPress={() => this.toggleSwitch1()}>
              <CheckBox
