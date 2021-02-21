@@ -15,9 +15,9 @@ export default class App extends React.Component {
     this.state = {
       isReady: false,
       profile: false,
-      swipe: false,
+      swipe: true,
       chat: false,
-      setting: true,
+      settings: true,
     };
   }
 
@@ -78,14 +78,14 @@ export default class App extends React.Component {
             desc: "Hi I'm billy and I like bananas"}}
           /> : null}
 
-          {this.state.setting ? <SettingViewComponent active={this.state.setting} style={{height: '585px'}} setting={{
+          {this.state.settings ? <SettingViewComponent active={this.state.settings} style={{height: '585px'}} settings={{
             name: "Billy",
             picture: require('./assets/avatar-placeholder.png'),
             desc: "Hi I'm billy and I like bananas",
             age: "23",
             gender: "male"}}
           /> : null}
-          <Navigation></Navigation>
+          
           {/* {this.state.settings ? <SettingViewComponent></SettingViewComponent> : null} */}
           <Navigation updateNav={this.updateState.bind(this)}></Navigation>
       </Container>
