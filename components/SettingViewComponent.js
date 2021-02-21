@@ -81,9 +81,9 @@ class SettingViewComponent extends React.Component {
               width: '100px', 
               height: '30px',
               textAlign: 'center', 
-              backgroundColor: this.state.seg === 1 ? '#FFF' : '#BCE2AE',
-              borderColor: this.state.seg === 1 ? '#BCE2AE' : null, 
-              color: this.state.seg === 1 ? '#BCE2AE' : '#FFF'
+              backgroundColor: this.state.seg === 1 ? '#BCE2AE' : '#FFF',
+              borderColor: this.state.seg === 1 ? null : '#BCE2AE', 
+              color: this.state.seg === 1 ? '#FFF' :'#BCE2AE',
             }}
             first
             active={this.state.seg === 1 ? true : false}
@@ -95,9 +95,9 @@ class SettingViewComponent extends React.Component {
               width: '100px', 
               height: '30px',
               textAlign: 'center', 
-              backgroundColor: this.state.seg === 2 ? '#FFF' : '#D4E867',
-              borderColor: this.state.seg === 2 ? '#D4E867' : null, 
-              color: this.state.seg === 2 ? '#D4E867' : '#FFF'
+              backgroundColor: this.state.seg === 2 ? '#D4E867' : '#FFF',
+              borderColor: this.state.seg === 2 ? null : '#D4E867', 
+              color: this.state.seg === 2 ? '#FFF' : '#D4E867'
             }}
             active={this.state.seg === 2 ? true : false}
             onPress={() => this.setState({ seg: 2 })}
@@ -108,9 +108,9 @@ class SettingViewComponent extends React.Component {
               width: '100px', 
               height: '30px',
               textAlign: 'center', 
-              backgroundColor: this.state.seg === 3 ? '#FFF' : '#CE8952',
-              borderColor: this.state.seg === 3 ? '#CE8952' : 'FFF !important', 
-              color: this.state.seg === 3 ? '#CE8952' : '#FFF',
+              backgroundColor: this.state.seg === 3 ? '#CE8952' : '#FFF',
+              borderColor: this.state.seg === 3 ? 'FFF !important' : '#CE8952', 
+              color: this.state.seg === 3 ? '#FFF' : '#CE8952',
             }}
             last
             active={this.state.seg === 3 ? true : false}
