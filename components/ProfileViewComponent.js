@@ -18,6 +18,7 @@ class ProfileViewComponent extends React.Component {
           <Text style={styles.displayName}>{profile.name}, <Text style={styles.displayAge}>{profile.age}</Text></Text>
           <Image style={[styles.profilePicture, {aspectRatio: 1}]} resizeMode='contain' source={profile.picture} />
           <Text style={styles.description}>{profile.desc}</Text>
+          <Text style={styles.subtitle}>Interests</Text>
           {this.props.profile.hiking ? <ListItem style={{border: "none"}}><Text>Hiking</Text></ListItem> : null}
           {this.props.profile.skiing ? <ListItem style={{border: "none"}}><Text>Skiing</Text></ListItem> : null}
           {this.props.profile.snowshoeing ? <ListItem style={{border: "none"}}><Text>Snowshoeing</Text></ListItem> : null}
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'black',
     fontWeight: 'bold',
-    paddingBottom: '10px',
+    paddingVertical: '10px',
   },
   displayAge: {
     fontWeight: 'normal',
@@ -68,7 +69,18 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     width: '360px',
     padding: '20px',
-  }
+  }, 
+  subtitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    letterSpacing: 1.25,
+    color: 'black',
+    paddingBottom: '10px',
+    paddingTop: '20px',
+    paddingLeft: '20px',
+    borderTopColor: "rgb(217, 213, 220)",
+    borderTopWidth: "1px",
+  },
 })
 
 export default ProfileViewComponent
