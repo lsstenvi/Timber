@@ -1,4 +1,5 @@
 import React from 'react';
+import Chatbot from 'react-chatbot-kit'
 import { StyleSheet, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { Container, Text } from 'native-base';
@@ -10,6 +11,7 @@ import ProfileViewComponent from './components/ProfileViewComponent';
 import SwipePageComponent from './components/SwipePageComponent';
 import SwipePage from './components/SwipePage';
 import SettingViewComponent from './components/SettingViewComponent';
+import ChatViewComponent from './components/ChatViewComponent';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -81,6 +83,8 @@ export default class App extends React.Component {
           /> : null}
           {this.state.swipe ? <SwipePage></SwipePage> : null}
 
+          {this.state.chat ? <ChatViewComponent style={{height: '585px'}}/> : null}
+
           {this.state.settings ? <SettingViewComponent style={{height: '585px'}} settings={{
             name: "Billy",
             picture: require('./assets/avatar-placeholder.png'),
@@ -88,6 +92,7 @@ export default class App extends React.Component {
             age: "23",
             gender: "male"}}
           /> : null}
+
           <Navigation updateNav={this.updateState.bind(this)}></Navigation>
       </Container>
     );
