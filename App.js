@@ -92,7 +92,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Container style={this.styles.container}>
-          {this.state.profile ? <ProfileViewComponent style={{height: '585px'}} profile={{
+          {this.state.profile ? <ProfileViewComponent style={{height: '585px'}} user={this.state} profile={{
             name: this.state.name,
             picture: this.state.picture,
             desc: this.state.desc,
@@ -106,7 +106,7 @@ export default class App extends React.Component {
             bear: this.state.bear,
           }}
           /> : null}
-          {this.state.swipe ? <SwipePage></SwipePage> : null}
+          {this.state.swipe ? <SwipePage user={this.state}></SwipePage> : null}
 
           {this.state.chat ? <ChatViewComponent style={{height: '585px'}}/> : null}
 

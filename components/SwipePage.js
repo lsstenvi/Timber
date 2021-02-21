@@ -99,7 +99,7 @@ class SwipePage extends Component {
             transform: [{ translateX: this.pan.x }, { translateY: this.pan.y }]
             }} {...this.panResponder.panHandlers} 
         >
-            <ProfileViewComponent profile={this.profile_database[this.state.profileInView]} />
+            <ProfileViewComponent profile={this.profile_database[this.state.profileInView]} user={this.props.user}/>
       </Animated.View>
     </View>
     );
