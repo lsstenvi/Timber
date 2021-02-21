@@ -14,6 +14,7 @@ class SettingViewComponent extends React.Component {
           checkbox5: props.settings.backpacking,
           checkbox6: props.settings.camping,
           checkbox7: props.settings.bear,
+          seg: 1,
         };
       }
       toggleSwitch1() {
@@ -76,20 +77,41 @@ class SettingViewComponent extends React.Component {
 
               <Text style={styles.description}>Physical Ability</Text>
               <Segment style={{backgroundColor: 'none', textAlign: 'center', borderRadius: '25%'}}>
-          <Button style={{width: '100px', height: '30px',textAlign: 'center', backgroundColor: '#BCE2AE'}}
+          <Button style={{
+              width: '100px', 
+              height: '30px',
+              textAlign: 'center', 
+              backgroundColor: this.state.seg === 1 ? '#FFF' : '#BCE2AE',
+              borderColor: this.state.seg === 1 ? '#BCE2AE' : null, 
+              color: this.state.seg === 1 ? '#BCE2AE' : '#FFF'
+            }}
             first
             active={this.state.seg === 1 ? true : false}
             onPress={() => this.setState({ seg: 1 })}
           >
             <Text style={{width: '100%'}}>Beginner</Text>
           </Button>
-          <Button style={{width: '100px', height: '30px',textAlign: 'center', backgroundColor: '#D4E867'}}
+          <Button style={{
+              width: '100px', 
+              height: '30px',
+              textAlign: 'center', 
+              backgroundColor: this.state.seg === 2 ? '#FFF' : '#D4E867',
+              borderColor: this.state.seg === 2 ? '#D4E867' : null, 
+              color: this.state.seg === 2 ? '#D4E867' : '#FFF'
+            }}
             active={this.state.seg === 2 ? true : false}
             onPress={() => this.setState({ seg: 2 })}
           >
             <Text style={{width: '100%'}}>Intermediate</Text>
           </Button>
-          <Button style={{width: '100px', height: '30px',textAlign: 'center', backgroundColor: '#CE8952'}}
+          <Button style={{
+              width: '100px', 
+              height: '30px',
+              textAlign: 'center', 
+              backgroundColor: this.state.seg === 3 ? '#FFF' : '#CE8952',
+              borderColor: this.state.seg === 3 ? '#CE8952' : 'FFF !important', 
+              color: this.state.seg === 3 ? '#CE8952' : '#FFF',
+            }}
             last
             active={this.state.seg === 3 ? true : false}
             onPress={() => this.setState({ seg: 3 })}
