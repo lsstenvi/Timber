@@ -8,7 +8,9 @@ class SwipePage extends Component {
     profile_database = [
         {name: "Hugh and Lori", age: 69, desc: "Hello all you lovely folks! We're Hugh and Lori, just two old birds looking to enjoy our retirement. Don't let our age fool you- we bet we could outhike some of you youngins! We love backpacking and bear-dodging (we love looking for a bit of excitement in our old age ;-)). Feel free to send us a message, we love making new friends, no matter who!", picture: require('../assets/profile4.png')},
         {name: "Tori", age: 25, desc: "hey let's go mountain climbing", picture: require('../assets/profile1.png')},
-        {name: "Geoffrey", age: 21, desc: "Hey, my name is Geoffrey, but everyone just calls me Geoff. The wife says I need to get out more, so I'm trying to get into hiking LOL. Looking for some nice folks to show me the ropes, maybe grab a couple brews after.", picture: require('../assets/profile2.png')},
+        {name: "Geoffrey", age: 54, desc: "Hey, my name is Geoffrey, but everyone just calls me Geoff. The wife says I need to get out more, so I'm trying to get into hiking LOL. Looking for some nice folks to show me the ropes, maybe grab a couple brews after.", picture: require('../assets/profile2.png')},
+        {name: "Alex", age: 21, desc: "hi, im a chill person looking for friends to go skiing with. im pretty experienced, but im always open to meeting anyone who wants to have fun. hit me up", picture: require('../assets/profile5.png')},
+        {name: "Jacob", age: 32, desc: "I like to explore the woods and camp. Let me know if you're interested!", picture: require('../assets/profile6.png')},
     ];
 
     timer = null;

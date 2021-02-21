@@ -60,13 +60,13 @@ class SettingViewComponent extends React.Component {
               <Image style={[styles.profilePicture, {aspectRatio: 1}]} resizeMode='contain' source={settings.picture} />
               <Text style={styles.description}>Age</Text>
               <Item>
-              <Input placeholder={settings.age} />
+              <Input placeholder={settings.age} style={styles.input}/>
               </Item>
               <Text style={styles.description}>Gender</Text>
               <Item>
-              <Input placeholder={settings.gender} />
+              <Input placeholder={settings.gender} style={styles.input}/>
               </Item>
-              <Text style={styles.description}>Your favorite Outdoor Activities</Text>
+              <Text style={styles.description}>Your Favorite Outdoor Activities</Text>
               <ListItem button onPress={() => this.toggleSwitch1()}>
              <CheckBox
                color="#000"
@@ -74,67 +74,67 @@ class SettingViewComponent extends React.Component {
                onPress={() => this.toggleSwitch1()}
              />
              <Body>
-               <Text>Hiking</Text>
+               <Text style={styles.checkbox}>Hiking</Text>
              </Body>
               </ListItem>
            <ListItem button onPress={() => this.toggleSwitch2()}>
              <CheckBox
-               color="#000"
-               checked={this.state.checkbox2}
+                  color="#000"
+                  checked={this.state.checkbox2}
                   onPress={() => this.toggleSwitch2()}
                />
                <Body>
-                  <Text>Skiing</Text>
+                  <Text style={styles.checkbox}>Skiing</Text>
                 </Body>
              </ListItem>
              <ListItem button onPress={() => this.toggleSwitch3()}>
                <CheckBox
                   color="#000"
-               checked={this.state.checkbox3}
-                onPress={() => this.toggleSwitch3()}
+                  checked={this.state.checkbox3}
+                  onPress={() => this.toggleSwitch3()}
              />
                <Body>
-               <Text>Snowshoeing</Text>
+               <Text style={styles.checkbox}>Snowshoeing</Text>
               </Body>
               </ListItem>
               <ListItem button onPress={() => this.toggleSwitch4()}>
                 <CheckBox
-               color="#000"
-               checked={this.state.checkbox4}
+                  color="#000"
+                  checked={this.state.checkbox4}
                   onPress={() => this.toggleSwitch4()}
                 />
                 <Body>
-                  <Text>Mountain Climbing</Text>
+                  <Text style={styles.checkbox}>Mountain Climbing</Text>
                 </Body>
               </ListItem>
               <ListItem button onPress={() => this.toggleSwitch5()}>
                 <CheckBox
-               color="#000"
-               checked={this.state.checkbox5}
+                  color="#000"
+                  checked={this.state.checkbox5}
                   onPress={() => this.toggleSwitch5()}
                 />
                 <Body>
-                  <Text>Backpacking</Text>
+                  <Text style={styles.checkbox}>Backpacking</Text>
                 </Body>
               </ListItem>
               <ListItem button onPress={() => this.toggleSwitch6()}>
                 <CheckBox
-               color="#000"
-               checked={this.state.checkbox6}
+                  color="#000"
+                  checked={this.state.checkbox6}
                   onPress={() => this.toggleSwitch6()}
                 />
                 <Body>
-                  <Text>Camping</Text>
+                  <Text style={styles.checkbox}>Camping</Text>
                 </Body>
               </ListItem>
               <ListItem button onPress={() => this.toggleSwitch7()}>
                 <CheckBox
-               color="#000"
-               checked={this.state.checkbox7}
+                  color="#000"
+                  checked={this.state.checkbox7}
                   onPress={() => this.toggleSwitch7()}
                 />
                 <Body>
-                  <Text>Bear Dodging</Text>
+                  <Text style={styles.checkbox}>Bear Dodging</Text>
                 </Body>
               </ListItem>
             </ScrollView>
@@ -159,19 +159,32 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: 'stretch',
     width: '100%',
-    height: undefined,
+    height: '320px',
   },
   displayName: {
-    fontSize: 36,
+    fontSize: 32,
     textAlign: 'center',
     color: 'black',
     fontWeight: 'bold',
+    paddingBottom: '10px',
+  },
+  displayAge: {
+    fontWeight: 'normal',
   },
   description: {
     fontSize: 24,
     color: 'black',
     fontWeight: 'normal',
-  }
+    width: '360px',
+    padding: '20px',
+  }, 
+  input: {
+    marginHorizontal: '20px',
+    paddingHorizontal: '20px',
+  },
+  checkbox: {
+    paddingLeft: '10px',
+  },
 })
 
 export default SettingViewComponent

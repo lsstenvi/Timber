@@ -22,6 +22,11 @@ export default class App extends React.Component {
       swipe: false,
       chat: false,
       settings: false,
+      name: "Billy",
+      picture: require('./assets/profile3.png'),
+      desc: "Hi I'm Billy, and I am here to party!",
+      age: "23",
+      gender: "Man",
     };
   }
 
@@ -77,10 +82,10 @@ export default class App extends React.Component {
     return (
       <Container style={this.styles.container}>
           {this.state.profile ? <ProfileViewComponent style={{height: '585px'}} profile={{
-            name: "Billy",
-            picture: require('./assets/profile3.png'),
-            desc: "Hi I'm billy and I like bananas",
-            age: "23",
+            name: this.state.name,
+            picture: this.state.picture,
+            desc: this.state.desc,
+            age: this.state.age,
           }}
           /> : null}
           {this.state.swipe ? <SwipePage></SwipePage> : null}
@@ -88,11 +93,11 @@ export default class App extends React.Component {
           {this.state.chat ? <ChatViewComponent style={{height: '585px'}}/> : null}
 
           {this.state.settings ? <SettingViewComponent style={{height: '585px'}} settings={{
-            name: "Billy",
-            picture: require('./assets/profile3.png'),
-            desc: "Hi I'm billy and I like bananas",
-            age: "23",
-            gender: "male"}}
+            name: this.state.name,
+            picture: this.state.picture,
+            desc: this.state.desc,
+            age: this.state.age,
+            gender: this.state.gender}}
           /> : null}
 
           <Navigation updateNav={this.updateState.bind(this)}></Navigation>
