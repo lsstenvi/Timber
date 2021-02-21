@@ -25,8 +25,15 @@ export default class App extends React.Component {
       name: "Billy",
       picture: require('./assets/profile3.png'),
       desc: "Hi I'm Billy, and I am here to party!",
-      age: "23",
+      age: 23,
       gender: "Man",
+      hiking: true,
+      skiing: true,
+      snowshoeing: true,
+      mountain: false,
+      backpacking: false,
+      camping: false,
+      bear: true,
     };
   }
 
@@ -86,6 +93,13 @@ export default class App extends React.Component {
             picture: this.state.picture,
             desc: this.state.desc,
             age: this.state.age,
+            hiking: this.state.hiking,
+            skiing: this.state.skiing,
+            snowshoeing: this.state.snowshoeing,
+            mountain: this.state.mountain,
+            backpacking: this.state.backpacking,
+            camping: this.state.camping,
+            bear: this.state.bear,
           }}
           /> : null}
           {this.state.swipe ? <SwipePage></SwipePage> : null}
@@ -97,7 +111,15 @@ export default class App extends React.Component {
             picture: this.state.picture,
             desc: this.state.desc,
             age: this.state.age,
-            gender: this.state.gender}}
+            gender: this.state.gender,
+            hiking: this.state.hiking,
+            skiing: this.state.skiing,
+            snowshoeing: this.state.snowshoeing,
+            mountain: this.state.mountain,
+            backpacking: this.state.backpacking,
+            camping: this.state.camping,
+            bear: this.state.bear,
+          }}
           /> : null}
 
           <Navigation updateNav={this.updateState.bind(this)}></Navigation>
