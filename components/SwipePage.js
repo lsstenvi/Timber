@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {Animated, PanResponder, StyleSheet, View, Text} from 'react-native';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import ProfileViewComponent from './ProfileViewComponent';
 
@@ -9,32 +9,51 @@ class SwipePage extends Component {
         {name: "Bob", desc: "hi", picture: require('../assets/avatar-placeholder.png')},
         {name: "Wow a new guy", desc: "I actually like to hike", picture: require('../assets/avatar-placeholder.png')},
         {name: "Emma R", desc: "it's me, from the dad dating game", picture: require('../assets/avatar-placeholder.png')},
-    ]
+    ];
+
+    timer = null;
+
+    pan = new Animated.ValueXY();
+
+    panResponder = PanResponder.create({
+        onMoveShouldSetPanResponder: () => true,
+        onPanResponderGrant: (evt, gestureState) => {
+
+            this.timer = setTimeout(() => {
+                this.setState({canMove: true});
+            }, 100);
+
+        },
+        onPanResponderMove: Animated.event([
+            null, { dx: this.pan.x, dy: this.pan.y }], {listener: () => {
+                if (this.pan.x._value > 180 && this.state.canMove) {
+                    console.log('right');
+                    this.onMoveShouldSetPanResponder;
+                    this.onSwipe('SWIPE_RIGHT', null);
+                    clearTimeout(this.timer); 
+                    this.setState({canMove: false});
+                }
+                else if (this.pan.x._value < -180 && this.state.canMove) {
+                    this.onSwipe('SWIPE_LEFT', null);
+                    clearTimeout(this.timer); 
+                    this.setState({canMove: false});
+                }
+            }}),
+        onPanResponderRelease: () => {
+            Animated.spring(this.pan, { toValue: { x: 0, y: 0 } }).start();
+            clearTimeout(self.timer); 
+            this.setState({canMove: false});
+        }
+    });
 
   constructor(props) {
     super(props);
     this.state = {
-      myText: 'I\'m ready to get swiped!',
       gestureName: 'none',
       backgroundColor: '#fff',
       profileInView: 0,
+      canMove: true,
     };
-  }
-
-  onSwipeUp(gestureState) {
-    this.setState({myText: 'You swiped up!'});
-  }
-
-  onSwipeDown(gestureState) {
-    this.setState({myText: 'You swiped down!'});
-  }
-
-  onSwipeLeft(gestureState) {
-    this.setState({myText: 'You swiped left!'});
-  }
-
-  onSwipeRight(gestureState) {
-    this.setState({myText: 'You swiped right!'});
   }
 
   onSwipe(gestureName, gestureState) {
@@ -43,21 +62,17 @@ class SwipePage extends Component {
     switch (gestureName) {
       case SWIPE_LEFT:
         this.setState({
-            backgroundColor: 'red',
             profileInView: (this.state.profileInView + 1) % this.profile_database.length
         });
         break;
       case SWIPE_RIGHT:
         this.setState({
-            backgroundColor: 'green',
             profileInView: (this.state.profileInView + 1) % this.profile_database.length
         });
         break;
       case SWIPE_UP:
-        this.setState({backgroundColor: 'blue'});
         break;
       case SWIPE_DOWN:
-        this.setState({backgroundColor: 'yellow'});
         break;
     }
   }
@@ -70,22 +85,21 @@ class SwipePage extends Component {
     };
 
     return (
-      <GestureRecognizer
-        onSwipe={(direction, state) => this.onSwipe(direction, state)}
-        onSwipeUp={(state) => this.onSwipeUp(state)}
-        onSwipeDown={(state) => this.onSwipeDown(state)}
-        onSwipeLeft={(state) => this.onSwipeLeft(state)}
-        onSwipeRight={(state) => this.onSwipeRight(state)}
-        config={config}
-        style={[{
-          backgroundColor: this.state.backgroundColor
-        }, styles.container]}
+    <View style={styles.container}>
+        <GestureRecognizer
+            onSwipe={(direction, state) => this.onSwipe(direction, state)}
+            config={config}
+            style={styles.container}
+            >
+        </GestureRecognizer>
+        <Animated.View style={{
+            backgroundColor: this.state.backgroundColor, 
+            transform: [{ translateX: this.pan.x }, { translateY: this.pan.y }]
+            }} {...this.panResponder.panHandlers} 
         >
-        <Text>{this.state.myText}</Text>
-        <Text>onSwipe callback received gesture: {this.state.gestureName}</Text>
-        <ProfileViewComponent
-            profile={this.profile_database[this.state.profileInView]} />
-      </GestureRecognizer>
+            <ProfileViewComponent profile={this.profile_database[this.state.profileInView]} />
+      </Animated.View>
+    </View>
     );
   }
 }
@@ -95,19 +109,8 @@ const styles = StyleSheet.create({
       flex: 'auto',
       alignItems: 'center',
       position: 'relative',
+      draggable: 'true',
     },
-    displayName: {
-      fontSize: 36,
-      textAlign: 'center',
-      color: 'black',
-      fontWeight: 'bold',
-      opacity: 0.5
-    },
-    description: {
-      fontSize: 24,
-      color: 'black',
-      fontWeight: 'normal',
-    }
   })
 
 export default SwipePage;
