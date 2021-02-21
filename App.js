@@ -8,6 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 import Navigation from './components/Navigation';
 import ProfileViewComponent from './components/ProfileViewComponent';
 import SwipePageComponent from './components/SwipePageComponent';
+import SwipePage from './components/SwipePage';
 import SettingViewComponent from './components/SettingViewComponent';
 
 export default class App extends React.Component {
@@ -79,6 +80,7 @@ export default class App extends React.Component {
             desc: "Hi I'm billy and I like bananas"}}
           /> : null}
           {this.state.swipe ? <SwipePageComponent></SwipePageComponent> : null}
+          {this.state.chat ? <SwipePage></SwipePage> : null}
 
           {this.state.settings ? <SettingViewComponent style={{height: '585px'}} setting={{
             name: "Billy",
@@ -87,7 +89,6 @@ export default class App extends React.Component {
             age: "23",
             gender: "male"}}
           /> : null}
-          {/* {this.state.settings ? <SettingViewComponent></SettingViewComponent> : null} */}
           <Navigation updateNav={this.updateState.bind(this)}></Navigation>
       </Container>
     );
