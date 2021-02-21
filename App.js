@@ -46,6 +46,10 @@ export default class App extends React.Component {
     this.setState({ isReady: true });
   }
 
+  updateUser(userState) {
+    this.setState(userState)
+  }
+
   updateState (navState) {
     switch (navState) {
       case 1:
@@ -106,7 +110,7 @@ export default class App extends React.Component {
 
           {this.state.chat ? <ChatViewComponent style={{height: '585px'}}/> : null}
 
-          {this.state.settings ? <SettingViewComponent style={{height: '585px'}} settings={{
+          {this.state.settings ? <SettingViewComponent style={{height: '585px'}} userUpdate={this.updateUser.bind(this)} settings={{
             name: this.state.name,
             picture: this.state.picture,
             desc: this.state.desc,
@@ -119,7 +123,7 @@ export default class App extends React.Component {
             backpacking: this.state.backpacking,
             camping: this.state.camping,
             bear: this.state.bear,
-          }}
+          }} 
           /> : null}
 
           <Navigation updateNav={this.updateState.bind(this)}></Navigation>

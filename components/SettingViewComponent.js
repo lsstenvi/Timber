@@ -20,36 +20,43 @@ class SettingViewComponent extends React.Component {
         this.setState({
           checkbox1: !this.state.checkbox1
         });
+        this.props.userUpdate({hiking: !this.state.checkbox1});
       }
       toggleSwitch2() {
         this.setState({
           checkbox2: !this.state.checkbox2
         });
+        this.props.userUpdate({skiing: !this.state.checkbox2});
       }
       toggleSwitch3() {
         this.setState({
           checkbox3: !this.state.checkbox3
         });
+        this.props.userUpdate({snowshoeing: !this.state.checkbox3});
       }
       toggleSwitch4() {
         this.setState({
           checkbox4: !this.state.checkbox4
         });
+        this.props.userUpdate({mountain: !this.state.checkbox4});
       }
       toggleSwitch5() {
         this.setState({
           checkbox5: !this.state.checkbox5
         });
+        this.props.userUpdate({backpacking: !this.state.checkbox5});
       }
       toggleSwitch6() {
         this.setState({
           checkbox6: !this.state.checkbox6
         });
+        this.props.userUpdate({camping: !this.state.checkbox6});
       }
       toggleSwitch7() {
         this.setState({
           checkbox7: !this.state.checkbox7
         });
+        this.props.userUpdate({bear: !this.state.checkbox7});
       }
     render() {
         const settings = this.props.settings;

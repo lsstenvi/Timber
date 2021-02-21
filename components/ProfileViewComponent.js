@@ -1,3 +1,4 @@
+import { ListItem } from 'native-base';
 import React from 'react';
 import { StyleSheet, Text, Image, View, ScrollView } from 'react-native';
 
@@ -17,6 +18,13 @@ class ProfileViewComponent extends React.Component {
           <Text style={styles.displayName}>{profile.name}, <Text style={styles.displayAge}>{profile.age}</Text></Text>
           <Image style={[styles.profilePicture, {aspectRatio: 1}]} resizeMode='contain' source={profile.picture} />
           <Text style={styles.description}>{profile.desc}</Text>
+          {this.props.profile.hiking ? <ListItem style={{border: "none"}}><Text>Hiking</Text></ListItem> : null}
+          {this.props.profile.skiing ? <ListItem style={{border: "none"}}><Text>Skiing</Text></ListItem> : null}
+          {this.props.profile.snowshoeing ? <ListItem style={{border: "none"}}><Text>Snowshoeing</Text></ListItem> : null}
+          {this.props.profile.mountain ? <ListItem style={{border: "none"}}><Text>Mountain Climbing</Text></ListItem> : null}
+          {this.props.profile.backpacking ? <ListItem style={{border: "none"}}><Text>Backpacking</Text></ListItem> : null}
+          {this.props.profile.camping ? <ListItem style={{border: "none"}}><Text>Camping</Text></ListItem> : null}
+          {this.props.profile.bear ? <ListItem style={{border: "none"}}><Text>Bear Dodging</Text></ListItem> : null}
         </ScrollView>
       </View>
     )
