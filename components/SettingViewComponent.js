@@ -144,15 +144,16 @@ class SettingViewComponent extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'relative',
-  },
+    container: {
+        flex: 'auto',
+        alignItems: 'center',
+        position: 'relative',
+        height: '585px',
+      },
   scrollView: {
-    flex: 1,
-    marginHorizontal: 20,
+    width: '100%',
+    flex: 'auto',
+    height: '585px',
   },
   profilePicture: {
     flex: 1,

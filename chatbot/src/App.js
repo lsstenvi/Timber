@@ -22,4 +22,19 @@ function App() {
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 'auto',
+    alignItems: 'center',
+    position: 'relative',
+    height: '585px',
+    width: '360px',
+  },
+  scrollView: {
+    width: '100%',
+    flex: 'auto',
+    height: '585px',
+  }
+})
+
 export default App;
