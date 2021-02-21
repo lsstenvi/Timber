@@ -14,7 +14,7 @@ class ProfileViewComponent extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
-          <Text style={styles.displayName}>{profile.name}</Text>
+          <Text style={styles.displayName}>{profile.name}, <Text style={styles.displayAge}>{profile.age}</Text></Text>
           <Image style={[styles.profilePicture, {aspectRatio: 1}]} resizeMode='contain' source={profile.picture} />
           <Text style={styles.description}>{profile.desc}</Text>
         </ScrollView>
@@ -45,16 +45,21 @@ const styles = StyleSheet.create({
     draggable: 'true',
   },
   displayName: {
-    fontSize: 36,
+    fontSize: 32,
     textAlign: 'center',
     color: 'black',
     fontWeight: 'bold',
+    paddingBottom: '10px',
+  },
+  displayAge: {
+    fontWeight: 'normal',
   },
   description: {
     fontSize: 24,
     color: 'black',
     fontWeight: 'normal',
     width: '360px',
+    padding: '20px',
   }
 })
 

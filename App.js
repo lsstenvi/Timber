@@ -78,8 +78,10 @@ export default class App extends React.Component {
       <Container style={this.styles.container}>
           {this.state.profile ? <ProfileViewComponent style={{height: '585px'}} profile={{
             name: "Billy",
-            picture: require('./assets/avatar-placeholder.png'),
-            desc: "Hi I'm billy and I like bananas"}}
+            picture: require('./assets/profile3.png'),
+            desc: "Hi I'm billy and I like bananas",
+            age: "23",
+          }}
           /> : null}
           {this.state.swipe ? <SwipePage></SwipePage> : null}
 
@@ -87,7 +89,7 @@ export default class App extends React.Component {
 
           {this.state.settings ? <SettingViewComponent style={{height: '585px'}} settings={{
             name: "Billy",
-            picture: require('./assets/avatar-placeholder.png'),
+            picture: require('./assets/profile3.png'),
             desc: "Hi I'm billy and I like bananas",
             age: "23",
             gender: "male"}}
