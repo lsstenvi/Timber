@@ -7,13 +7,13 @@ class SettingViewComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          checkbox1: true,
-          checkbox2: true,
-          checkbox3: true,
-          checkbox4: false,
-          checkbox5: false,
-          checkbox6: false,
-          checkbox7: true,
+          checkbox1: props.settings.hiking,
+          checkbox2: props.settings.skiing,
+          checkbox3: props.settings.snowshoeing,
+          checkbox4: props.settings.mountain,
+          checkbox5: props.settings.backpacking,
+          checkbox6: props.settings.camping,
+          checkbox7: props.settings.bear,
         };
       }
       toggleSwitch1() {
