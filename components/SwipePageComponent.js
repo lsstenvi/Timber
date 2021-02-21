@@ -67,9 +67,8 @@ class SwipePageComponent extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 'auto',
     alignItems: 'center',
-    justifyContent: 'center',
     position: 'relative',
   },
   displayName: {

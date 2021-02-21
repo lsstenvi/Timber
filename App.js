@@ -7,6 +7,7 @@ import { Ionicons } from '@expo/vector-icons';
 // import TestComponent from './components/TestComponent';
 import Navigation from './components/Navigation';
 import ProfileViewComponent from './components/ProfileViewComponent';
+import SwipePageComponent from './components/SwipePageComponent';
 import SettingViewComponent from './components/SettingViewComponent';
 
 export default class App extends React.Component {
@@ -77,6 +78,7 @@ export default class App extends React.Component {
             picture: require('./assets/avatar-placeholder.png'),
             desc: "Hi I'm billy and I like bananas"}}
           /> : null}
+          {this.state.swipe ? <SwipePageComponent></SwipePageComponent> : null}
           {/* {this.state.settings ? <SettingViewComponent></SettingViewComponent> : null} */}
           <Navigation updateNav={this.updateState.bind(this)}></Navigation>
       </Container>
