@@ -16,10 +16,10 @@ class Navigation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tab1: false,
+      tab1: true,
       tab2: false,
       tab3: false,
-      tab4: true
+      tab4: false
     };
   }
   toggleTab1() {
