@@ -1,13 +1,6 @@
-import { ListItem } from 'native-base';
+import { ListItem, Icon } from 'native-base';
 import React from 'react';
 import { StyleSheet, Text, Image, View, ScrollView } from 'react-native';
-
-/** Usage:
-<ProfileViewComponent profile={{
-  name: "Billy",
-  picture: require('./assets/avatar-placeholder.png'),
-  desc: "Hi I'm billy and I like bananas"}}/>
- */
 
 class ProfileViewComponent extends React.Component {
   render() {
@@ -18,13 +11,56 @@ class ProfileViewComponent extends React.Component {
           <Text style={styles.displayName}>{profile.name}, <Text style={styles.displayAge}>{profile.age}</Text></Text>
           <Image style={[styles.profilePicture, {aspectRatio: 1}]} resizeMode='contain' source={profile.picture} />
           <Text style={styles.description}>{profile.desc}</Text>
-          {this.props.profile.hiking ? <ListItem style={{border: "none"}}><Text>Hiking</Text></ListItem> : null}
-          {this.props.profile.skiing ? <ListItem style={{border: "none"}}><Text>Skiing</Text></ListItem> : null}
-          {this.props.profile.snowshoeing ? <ListItem style={{border: "none"}}><Text>Snowshoeing</Text></ListItem> : null}
-          {this.props.profile.mountain ? <ListItem style={{border: "none"}}><Text>Mountain Climbing</Text></ListItem> : null}
-          {this.props.profile.backpacking ? <ListItem style={{border: "none"}}><Text>Backpacking</Text></ListItem> : null}
-          {this.props.profile.camping ? <ListItem style={{border: "none"}}><Text>Camping</Text></ListItem> : null}
-          {this.props.profile.bear ? <ListItem style={{border: "none"}}><Text>Bear Dodging</Text></ListItem> : null}
+          <Text style={styles.subtitle}>Interests</Text>
+          {this.props.profile.hiking ? 
+            <ListItem style={{border: "none"}}>
+              <Text>Hiking</Text>
+              {this.props.user.hiking && this.props.user.name != this.props.profile.name ? 
+              <Icon name="checkmark-done-sharp" style={styles.shared}/> : null }
+            </ListItem> 
+          : null}
+          {this.props.profile.skiing ? 
+            <ListItem style={{border: "none"}}>
+              <Text>Skiing</Text>
+              {this.props.user.skiing && this.props.user.name != this.props.profile.name ? 
+                <Icon name="checkmark-done-sharp" style={styles.shared}/> : null }
+            </ListItem> 
+          : null}
+          {this.props.profile.snowshoeing ? 
+            <ListItem style={{border: "none"}}>
+              <Text>Snowshoeing</Text>
+              {this.props.user.snowshoeing && this.props.user.name != this.props.profile.name ? 
+                <Icon name="checkmark-done-sharp" style={styles.shared}/> : null }
+            </ListItem> 
+          : null}
+          {this.props.profile.mountain ? 
+            <ListItem style={{border: "none"}}>
+              <Text>Mountain Climbing</Text>
+              {this.props.user.mountain && this.props.user.name != this.props.profile.name ? 
+                <Icon name="checkmark-done-sharp" style={styles.shared}/> : null }
+            </ListItem> 
+            : null}
+          {this.props.profile.backpacking ? 
+            <ListItem style={{border: "none"}}>
+              <Text>Backpacking</Text>
+              {this.props.user.backpacking && this.props.user.name != this.props.profile.name ? 
+              <Icon name="checkmark-done-sharp" style={styles.shared}/> : null }
+            </ListItem> 
+          : null}
+          {this.props.profile.camping ? 
+            <ListItem style={{border: "none"}}>
+              <Text>Camping</Text>
+              {this.props.user.camping && this.props.user.name != this.props.profile.name ? 
+                <Icon name="checkmark-done-sharp" style={styles.shared}/> : null }
+            </ListItem> 
+          : null}
+          {this.props.profile.bear ? 
+            <ListItem style={{border: "none"}}>
+              <Text>Bear Dodging</Text>
+              {this.props.user.bear && this.props.user.name != this.props.profile.name ? 
+                <Icon name="checkmark-done-sharp" style={styles.shared}/> : null }
+            </ListItem> 
+          : null}
         </ScrollView>
       </View>
     )
@@ -57,7 +93,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'black',
     fontWeight: 'bold',
-    paddingBottom: '10px',
+    paddingVertical: '10px',
   },
   displayAge: {
     fontWeight: 'normal',
@@ -68,7 +104,22 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     width: '360px',
     padding: '20px',
-  }
+  }, 
+  subtitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    letterSpacing: 1.25,
+    color: 'black',
+    paddingBottom: '10px',
+    paddingTop: '20px',
+    paddingLeft: '20px',
+    borderTopColor: "rgb(217, 213, 220)",
+    borderTopWidth: "1px",
+  },
+  shared: {
+    paddingLeft: '5px',
+    fontSize: '20px'
+  },
 })
 
 export default ProfileViewComponent
