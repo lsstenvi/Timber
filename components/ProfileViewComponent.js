@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     position: 'relative',
     height: '585px',
+    draggable: 'true',
   },
   scrollView: {
     width: '100%',
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: '20px',
     height: '320px',
+    draggable: 'true',
   },
   displayName: {
     fontSize: 36,
