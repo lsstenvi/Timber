@@ -1,15 +1,23 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
+import ProfileViewComponent from './ProfileViewComponent';
 
 class SwipePage extends Component {
+
+    profile_database = [
+        {name: "Bob", desc: "hi", picture: require('../assets/avatar-placeholder.png')},
+        {name: "Wow a new guy", desc: "I actually like to hike", picture: require('../assets/avatar-placeholder.png')},
+        {name: "Emma R", desc: "it's me, from the dad dating game", picture: require('../assets/avatar-placeholder.png')},
+    ]
 
   constructor(props) {
     super(props);
     this.state = {
       myText: 'I\'m ready to get swiped!',
       gestureName: 'none',
-      backgroundColor: '#fff'
+      backgroundColor: '#fff',
+      profileInView: 0,
     };
   }
 
@@ -33,16 +41,22 @@ class SwipePage extends Component {
     const {SWIPE_UP, SWIPE_DOWN, SWIPE_LEFT, SWIPE_RIGHT} = swipeDirections;
     this.setState({gestureName: gestureName});
     switch (gestureName) {
-      case SWIPE_UP:
-        this.setState({backgroundColor: 'red'});
-        break;
-      case SWIPE_DOWN:
-        this.setState({backgroundColor: 'green'});
-        break;
       case SWIPE_LEFT:
-        this.setState({backgroundColor: 'blue'});
+        this.setState({
+            backgroundColor: 'red',
+            profileInView: (this.state.profileInView + 1) % this.profile_database.length
+        });
         break;
       case SWIPE_RIGHT:
+        this.setState({
+            backgroundColor: 'green',
+            profileInView: (this.state.profileInView + 1) % this.profile_database.length
+        });
+        break;
+      case SWIPE_UP:
+        this.setState({backgroundColor: 'blue'});
+        break;
+      case SWIPE_DOWN:
         this.setState({backgroundColor: 'yellow'});
         break;
     }
@@ -63,16 +77,37 @@ class SwipePage extends Component {
         onSwipeLeft={(state) => this.onSwipeLeft(state)}
         onSwipeRight={(state) => this.onSwipeRight(state)}
         config={config}
-        style={{
-          flex: 1,
+        style={[{
           backgroundColor: this.state.backgroundColor
-        }}
+        }, styles.container]}
         >
         <Text>{this.state.myText}</Text>
         <Text>onSwipe callback received gesture: {this.state.gestureName}</Text>
+        <ProfileViewComponent
+            profile={this.profile_database[this.state.profileInView]} />
       </GestureRecognizer>
     );
   }
 }
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 'auto',
+      alignItems: 'center',
+      position: 'relative',
+    },
+    displayName: {
+      fontSize: 36,
+      textAlign: 'center',
+      color: 'black',
+      fontWeight: 'bold',
+      opacity: 0.5
+    },
+    description: {
+      fontSize: 24,
+      color: 'black',
+      fontWeight: 'normal',
+    }
+  })
 
 export default SwipePage;
