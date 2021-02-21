@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: 'stretch',
     width: '100%',
-    height: undefined,
+    height: '320px',
   },
   displayName: {
     fontSize: 36,
