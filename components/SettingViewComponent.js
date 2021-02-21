@@ -52,20 +52,21 @@ class SettingViewComponent extends React.Component {
         });
       }
     render() {
-        const setting = this.props.setting;
+        const settings = this.props.settings;
         return (
           <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
-              <Text style={styles.displayName}>{setting.name}</Text>
-              <Image style={[styles.profilePicture, {aspectRatio: 1}]} resizeMode='contain' source={setting.picture} />
+              <Text style={styles.displayName}>{settings.name}</Text>
+              <Image style={[styles.profilePicture, {aspectRatio: 1}]} resizeMode='contain' source={settings.picture} />
               <Text style={styles.description}>Age</Text>
               <Item>
-              <Input placeholder={setting.age} />
+              <Input placeholder={settings.age} />
               </Item>
               <Text style={styles.description}>Gender</Text>
               <Item>
-              <Input placeholder={setting.gender} />
+              <Input placeholder={settings.gender} />
               </Item>
+              <Text style={styles.description}>Your favorite Outdoor Activities</Text>
               <ListItem button onPress={() => this.toggleSwitch1()}>
              <CheckBox
                color="#000"

@@ -82,7 +82,7 @@ export default class App extends React.Component {
           {this.state.swipe ? <SwipePageComponent></SwipePageComponent> : null}
           {this.state.chat ? <SwipePage></SwipePage> : null}
 
-          {this.state.settings ? <SettingViewComponent style={{height: '585px'}} setting={{
+          {this.state.settings ? <SettingViewComponent style={{height: '585px'}} settings={{
             name: "Billy",
             picture: require('./assets/avatar-placeholder.png'),
             desc: "Hi I'm billy and I like bananas",
