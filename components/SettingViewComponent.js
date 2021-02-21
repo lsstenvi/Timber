@@ -67,11 +67,11 @@ class SettingViewComponent extends React.Component {
               <Image style={[styles.profilePicture, {aspectRatio: 1}]} resizeMode='contain' source={settings.picture} />
               <Text style={styles.description}>Age</Text>
               <Item>
-              <Input placeholder={settings.age} style={styles.input}/>
+              <Input placeholder={settings.age} style={styles.input} onChangeText={value => this.props.userUpdate({age: value})}/>
               </Item>
               <Text style={styles.description}>Gender</Text>
               <Item>
-              <Input placeholder={settings.gender} style={styles.input}/>
+              <Input placeholder={settings.gender} style={styles.input} onChangeText={value => this.props.userUpdate({gender: value})}/>
               </Item>
               <Text style={styles.description}>Your Favorite Outdoor Activities</Text>
               <ListItem button onPress={() => this.toggleSwitch1()}>
